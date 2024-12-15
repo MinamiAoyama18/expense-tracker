@@ -391,12 +391,12 @@ function updateCategorySelect() {
     `;
 } 
 
-// Add language handling function
+// Update language handling function
 function updateLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('preferredLanguage', lang);
     
-    // Update text content
+    // Update text content for static elements
     document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
         if (translations[lang][key]) {
@@ -412,23 +412,17 @@ function updateLanguage(lang) {
         }
     });
 
-    // Update YTD total with correct language
-    if (ytdTotalDiv.textContent) {
-        const usdMatch = ytdTotalDiv.textContent.match(/USD\s*([\d,]+)/);
-        const rmbMatch = ytdTotalDiv.textContent.match(/RMB\s*([\d,]+)/);
-        if (usdMatch && rmbMatch) {
-            ytdTotalDiv.textContent = translations[lang].ytdTotal
-                .replace('{usd}', usdMatch[1])
-                .replace('{rmb}', rmbMatch[1]);
-        }
-    }
-
     // Update flag visibility
     document.getElementById('en-flag').classList.toggle('active', lang === 'en');
     document.getElementById('zh-flag').classList.toggle('active', lang === 'zh');
 
-    // Force refresh of category select
-    updateCategorySelect();
+    // Refresh all dynamic content
+    if (auth.currentUser) {  // Only refresh if user is logged in
+        displayExpenses();    // Refresh expense list
+        updateYTDSummary();   // Refresh YTD total and category breakdown
+        updateCategorySelect(); // Refresh category dropdown
+        updateFrequencySelect(); // Refresh frequency dropdown
+    }
 }
 
 // Add event listeners for flags
