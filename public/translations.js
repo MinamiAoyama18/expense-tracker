@@ -20,7 +20,7 @@ export const translations = {
         selectCategory: "Select Category",
         addCategory: "+ Add Category",
         frequency: "Frequency",
-        oneOff: "one-off",
+        oneOff: "One-off",
         monthly: "monthly",
         annual: "annual",
         addOther: "+ Add Other",
@@ -35,7 +35,8 @@ export const translations = {
         bullet: "•",
         addFrequency: "Add New Frequency",
         cancel: "Cancel",
-        confirm: "OK"
+        confirm: "OK",
+        'one-off': "One-off"
     },
     zh: {
         login: "登录",
@@ -73,6 +74,7 @@ export const translations = {
         bullet: "•",
         addFrequency: "添加新频率",
         cancel: "取消",
-        confirm: "确定"
+        confirm: "确定",
+        'one-off': "一次性"
     }
 }; 

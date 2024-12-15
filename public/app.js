@@ -274,8 +274,10 @@ function displayExpenses() {
         const div = document.createElement('div');
         div.className = 'expense-item';
         
-        // Get the translated frequency or fallback to the original value
-        const translatedFrequency = translations[currentLang][expense.frequency] || expense.frequency;
+        // Update this line to handle both formats of frequency translation
+        const translatedFrequency = translations[currentLang][expense.frequency] || 
+                                  translations[currentLang][expense.frequency.replace('-', '')] ||
+                                  expense.frequency;
         
         div.innerHTML = `
             <div class="expense-item-header">
@@ -437,11 +439,16 @@ document.getElementById('zh-flag').addEventListener('click', () => updateLanguag
 function updateFrequencySelect() {
     frequencySelect.innerHTML = `
         ${Array.from(allFrequencies)
-            .map(freq => `
-                <option value="${freq}" data-translate="${freq}">
-                    ${translations[currentLang][freq] || freq}
-                </option>
-            `).join('')}
+            .map(freq => {
+                const translatedFreq = translations[currentLang][freq] || 
+                                     translations[currentLang][freq.replace('-', '')] ||
+                                     freq;
+                return `
+                    <option value="${freq}" data-translate="${freq}">
+                        ${translatedFreq}
+                    </option>
+                `;
+            }).join('')}
         <option value="add-new" data-translate="addOther">
             ${translations[currentLang].addOther}
         </option>
