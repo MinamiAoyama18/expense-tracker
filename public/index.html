@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="language-selector">
+        <img src="https://flagcdn.com/w40/us.png" alt="English" id="en-flag" class="flag-icon active">
+        <img src="https://flagcdn.com/w40/cn.png" alt="中文" id="zh-flag" class="flag-icon">
+    </div>
+
+    <!-- Login Form -->
+    <div id="loginSection">
+        <h2 data-translate="login">Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email" data-translate="email">Email Address</label>
+                <input type="email" id="email" name="email" 
+                       autocomplete="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password" data-translate="password">Password</label>
+                <input type="password" id="password" name="password" 
+                       autocomplete="current-password" required>
+            </div>
+            <button type="submit" data-translate="loginButton">Login</button>
+        </form>
+        
+        <p class="switch-form">
+            <span data-translate="dontHaveAccount">Don't have an account?</span>
+            <button type="button" id="switchToSignup" data-translate="signup">Sign Up</button>
+        </p>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signupSection" style="display: none;">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" name="email" 
+                       autocomplete="email" required>
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" name="password" 
+                       autocomplete="new-password" required>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        
+        <p class="switch-form">Already have an account? 
+            <button type="button" id="switchToLogin">Login</button>
+        </p>
+    </div>
+
+    <!-- Expense Tracker Section -->
+    <div id="expenseSection" style="display:none;">
+        <div class="header-section">
+            <h2 data-translate="expenseTracker">Expense Tracker</h2>
+            <div class="user-info">
+                <span id="userEmail"></span>
+                <button id="logoutButton" class="logout-button" data-translate="logout">Logout</button>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <div id="ytdTotal"></div>
+            <div id="categoryBreakdown"></div>
+        </div>
+
+        <!-- Add Expense Form -->
+        <form id="expenseForm">
+            <h3 data-translate="addNewExpense">Add New Expense</h3>
+            
+            <div class="form-group">
+                <label for="description" data-translate="description">Description</label>
+                <input type="text" id="description" name="description" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="originalAmount" data-translate="amount">Amount</label>
+                    <input type="number" id="originalAmount" name="originalAmount" 
+                           step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="currency" data-translate="currency">Currency</label>
+                    <select id="currency" name="currency" required>
+                        <option value="RMB" selected>RMB</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="JPY">JPY</option>
+                        <option value="HKD">HKD</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="usdAmount" data-translate="usdEquivalent">USD Equivalent</label>
+                    <input type="number" id="usdAmount" name="usdAmount" 
+                           step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="date" data-translate="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="category" data-translate="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="" data-translate="selectCategory">Select Category</option>
+                        <option value="Family" data-translate="family">Family</option>
+                        <option value="Personal" data-translate="personal">Personal</option>
+                        <option value="Tax" data-translate="tax">Tax</option>
+                        <option value="Insurance" data-translate="insurance">Insurance</option>
+                        <option value="add-new" data-translate="addCategory">+ Add Category</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="frequency" data-translate="frequency">Frequency</label>
+                    <select id="frequency" name="frequency" required>
+                        <option value="one-off" data-translate="oneOff">One-off</option>
+                        <option value="monthly" data-translate="monthly">Monthly</option>
+                        <option value="annual" data-translate="annual">Annual</option>
+                        <option value="add-new" data-translate="addOther">+ Add Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button" data-translate="addExpense">Add Expense</button>
+        </form>
+
+        <!-- Expense List -->
+        <div id="expenseList">
+            <!-- Expenses will be displayed here -->
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="app.js"></script>
+
+    <!-- Add this right before the closing body tag -->
+    <div id="frequencyModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3 data-translate="addFrequency">Add New Frequency</h3>
+            <input type="text" id="newFrequencyInput" placeholder="Enter frequency">
+            <div class="modal-buttons">
+                <button id="cancelFrequency" class="cancel-btn" data-translate="cancel">Cancel</button>
+                <button id="confirmFrequency" class="confirm-btn" data-translate="confirm">OK</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

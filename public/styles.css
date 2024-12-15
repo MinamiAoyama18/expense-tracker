@@ -1,0 +1,522 @@
+/* Mobile-first base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 16px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2196F3;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: white;
+    margin-bottom: 0.5rem;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2196F3;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:active {
+    background-color: #1976D2;
+}
+
+/* Login/Signup Section */
+#loginSection, #signupSection {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.switch-form {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.switch-form button {
+    background: none;
+    color: #2196F3;
+    padding: 4px;
+    width: auto;
+    font-weight: 600;
+}
+
+/* Expense Section */
+#expenseSection {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.header-section {
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.header-section h2 {
+    color: white;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#userEmail {
+    font-size: 0.9rem;
+    color: white;
+    font-weight: 500;
+}
+
+.logout-button {
+    width: auto;
+    padding: 8px 16px;
+    margin: 0;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Summary Section */
+.summary-section {
+    background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+#ytdTotal {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#categoryBreakdown {
+    display: grid;
+    gap: 8px;
+}
+
+.category-total {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: white;
+    margin: 8px 0;
+    transition: transform 0.2s;
+}
+
+.category-total:hover {
+    transform: translateX(5px);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Expense Form */
+#expenseForm {
+    background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    overflow: hidden;
+}
+
+#expenseForm h3 {
+    color: white;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#expenseForm label {
+    color: white;
+    font-weight: 500;
+}
+
+#expenseForm input,
+#expenseForm select {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+}
+
+#expenseForm button[type="submit"] {
+    background-color: white;
+    color: #F57C00;
+    font-weight: 600;
+}
+
+/* Expense List */
+.expense-item {
+    margin-bottom: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    padding: 12px;
+}
+
+.expense-item:nth-child(4n+1) {
+    background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+    color: #1565C0;
+}
+
+.expense-item:nth-child(4n+2) {
+    background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+    color: #6A1B9A;
+}
+
+.expense-item:nth-child(4n+3) {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    color: #2E7D32;
+}
+
+.expense-item:nth-child(4n+4) {
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    color: #E65100;
+}
+
+.expense-item:hover {
+    transform: translateY(-2px);
+}
+
+.expense-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.expense-description {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.expense-meta {
+    color: inherit;
+    font-size: 0.9rem;
+    margin: 8px 0;
+}
+
+.expense-amounts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    padding: 8px 0;
+    background: none;
+}
+
+.original-amount,
+.usd-amount {
+    color: inherit;
+}
+
+.delete-button {
+    width: auto;
+    padding: 4px 10px;
+    height: 28px;
+    margin: 0;
+    font-size: 0.8rem;
+    background-color: rgba(220, 53, 69, 0.9);
+    color: white;
+    line-height: 20px;
+    border-radius: 6px;
+}
+
+.delete-button:active {
+    background-color: #dc3545;
+}
+
+/* Touch-friendly improvements */
+input[type="date"],
+select,
+button {
+    min-height: 44px;
+}
+
+/* Loading and feedback states */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.feedback {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.feedback.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.feedback.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Responsive adjustments for larger screens */
+@media (min-width: 768px) {
+    body {
+        padding: 24px;
+    }
+
+    .expense-item {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .delete-button {
+        margin-top: 0;
+    }
+}
+
+/* Update form layout */
+.form-row {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+    min-width: 0;
+}
+
+/* Make inputs and selects the same width within their form-group */
+.form-row .form-group input,
+.form-row .form-group select {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: white;
+    margin-bottom: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+}
+
+/* Specific styling for date input to match other inputs */
+input[type="date"] {
+    height: 44px;
+    line-height: 44px;
+    padding: 0 12px;
+}
+
+/* Ensure select elements match input height */
+select {
+    height: 44px !important;
+    line-height: 44px;
+    background-position: right 12px center;
+}
+
+/* Adjust input padding for smaller screens */
+@media (max-width: 480px) {
+    .form-row .form-group input,
+    .form-row .form-group select {
+        padding: 8px;
+        font-size: 14px;
+    }
+} 
+
+/* Center the Add New Expense heading */
+#expenseForm h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Fix vertical alignment of select elements */
+.form-row .form-group select {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: white;
+    margin-bottom: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;  /* Center content vertically */
+    line-height: normal;  /* Reset line height */
+}
+
+/* Style select options */
+.form-row .form-group select option {
+    padding: 12px;
+    line-height: 44px;
+    height: 44px;
+}
+
+/* Ensure consistent vertical alignment across all form elements */
+input,
+select {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    line-height: normal;
+} 
+
+.language-selector {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.flag-icon {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.flag-icon.active {
+    opacity: 1;
+}
+
+.flag-icon:hover {
+    opacity: 0.8;
+} 
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    flex: 1;
+}
+
+.cancel-btn {
+    background-color: #666;
+}
+
+.confirm-btn {
+    background-color: #2196F3;
+}
+
+#newFrequencyInput {
+    width: 100%;
+    margin-top: 10px;
+} 
